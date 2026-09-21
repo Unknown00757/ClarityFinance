@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  body {
+    @apply min-h-screen flex flex-col bg-gray-50 text-gray-900 dark:bg-[#0F1117] dark:text-[#F8FAFC];
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* Recharts Focus Outline & Bounding Box Reset */
+.recharts-wrapper,
+.recharts-surface,
+.recharts-pie-sector,
+.recharts-sector,
+.recharts-pie,
+.recharts-layer,
+.recharts-active-shape,
+path:focus,
+g:focus,
+svg:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.recharts-pie-sector:focus,
+.recharts-sector:focus,
+.recharts-active-shape:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Custom Animation Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-scale {
+  opacity: 0;
+  animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom sleek scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #292D38;
+}
